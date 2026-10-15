@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>e-Race VW Group | Inducción Auto Eléctrico</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<div class="bg-grid"></div>
+<header><div class="brand">e-RACE <span>VW GROUP</span></div><div id="statusPill" class="pill">Listo</div></header>
+<main>
+<section id="home" class="screen active hero">
+  <div class="panel intro"><p class="eyebrow">DINÁMICA DE ELECTROMOVILIDAD</p><h1>Conecta. Responde.<br><span>Acelera.</span></h1><p>Trivia en vivo para hasta 10 participantes. 10 preguntas, orden aleatorio y carrera por precisión + velocidad.</p><div class="actions"><button class="primary" onclick="startHost()">Crear carrera</button><button class="secondary" onclick="showJoin()">Unirme</button></div><small>Duración máxima: 6:00 min</small></div>
+  <div class="car-card"><div class="road"><div class="car">⚡</div></div><div class="stats"><b>10</b><span>pilotos</span><b>10</b><span>retos</span><b>6:00</b><span>máximo</span></div></div>
+</section>
+<section id="join" class="screen"><div class="panel centered"><h2>Entrar a la carrera</h2><label>Código de sala<input id="roomInput" maxlength="8" placeholder="EJ. EV7K2A"></label><button class="primary wide" onclick="joinRoom()">Conectar</button><button class="link" onclick="goHome()">Regresar</button></div></section>
+<section id="register" class="screen"><div class="panel"><h2>Elige tu piloto</h2><label>Nombre del participante<input id="nameInput" maxlength="16" placeholder="Tu nombre"></label><div id="avatars" class="avatars"></div><button class="primary wide" onclick="registerPlayer()">Ir a parrilla</button></div></section>
+<section id="lobbyHost" class="screen"><div class="host-grid"><div class="panel"><p class="eyebrow">SALA</p><div id="roomCode" class="room-code"></div><div id="qrcode"></div><p class="hint">Escanea el QR o ingresa el código. El QR usa la URL pública de este sitio.</p><button id="startBtn" class="primary wide" onclick="launchGame()" disabled>Iniciar carrera</button></div><div class="panel"><h2>Parrilla de salida <span id="count">0/10</span></h2><div id="lobbyPlayers" class="player-list"></div></div></div></section>
+<section id="waiting" class="screen"><div class="panel centered"><div class="avatar-big" id="waitAvatar"></div><h2 id="waitName"></h2><p>Estás en la parrilla. Espera la salida.</p><div class="loader"></div></div></section>
+<section id="game" class="screen"><div class="game-top"><div><span id="qCounter">Pregunta 1/10</span><div class="progress"><i id="qProgress"></i></div></div><div id="timer" class="timer">06:00</div><div id="score">0 pts</div></div><div class="panel question-panel"><p id="questionTag" class="eyebrow"></p><h2 id="questionText"></h2><div id="answers" class="answers"></div></div></section>
+<section id="hostRace" class="screen"><div class="race-head"><div><p class="eyebrow">CARRERA EN VIVO</p><h2>Clasificación</h2></div><div id="hostTimer" class="timer">06:00</div></div><div id="raceTrack" class="race-track"></div></section>
+<section id="result" class="screen"><div class="panel centered"><div id="resultAvatar" class="avatar-big"></div><h2 id="resultTitle">¡Meta!</h2><div id="resultScore" class="big-score"></div><p id="resultText"></p><button class="secondary" onclick="location.reload()">Salir</button></div></section>
+<section id="podium" class="screen"><div class="panel"><p class="eyebrow">RESULTADOS FINALES</p><h1>Podio e-Race</h1><div id="podiumList" class="podium"></div><button class="primary" onclick="location.reload()">Nueva carrera</button></div></section>
+</main>
+<footer>Contenido base: Inducción Auto Eléctrico | Complemento: fuentes oficiales VW Group, Audi y UE</footer>
+<script src="app.js"></script>
+</body></html>
